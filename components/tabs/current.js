@@ -166,6 +166,7 @@ export default class Current extends Component {
 const styles = StyleSheet.create({
   chartItem: {
     flexDirection: 'row',
+    justifyContent: 'center',
     marginBottom: 12
   },
   monthList: {
@@ -173,8 +174,7 @@ const styles = StyleSheet.create({
     marginLeft: 50
   },
   pieChart: {
-    marginTop: 13,
-    marginLeft: 15
+    marginTop: 13
   },
   legendItem: {
     flexDirection: 'row',

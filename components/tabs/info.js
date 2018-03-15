@@ -135,23 +135,25 @@ export default class InputInfo extends Component {
 
     return (
       <View>
-        <View style={styles.inputItem}>
-          <Text style={styles.text}>Monthly income:</Text>
-          <TextInput
-            style={styles.infoField}
-            keyboardType={"numeric"}
-            onChangeText={this.handleInfoInput('income')}
-            value={income}
-          />
-        </View>
-        <View style={styles.inputItem}>
-          <Text style={styles.text}>Desired savings:</Text>
-          <TextInput
-            style={styles.infoField}
-            keyboardType={"numeric"}
-            onChangeText={this.handleInfoInput('desiredSavings')}
-            value={desiredSavings}
-          />
+        <View style={styles.userInfo}>
+          <View style={styles.inputItem}>
+            <Text style={styles.text}>Monthly income:</Text>
+            <TextInput
+              style={styles.infoField}
+              keyboardType={"numeric"}
+              onChangeText={this.handleInfoInput('income')}
+              value={income}
+            />
+          </View>
+          <View style={styles.inputItem}>
+            <Text style={styles.text}>Desired savings:</Text>
+            <TextInput
+              style={styles.infoField}
+              keyboardType={"numeric"}
+              onChangeText={this.handleInfoInput('desiredSavings')}
+              value={desiredSavings}
+            />
+          </View>
         </View>
         <Button
           style={styles.saveButton}
@@ -171,6 +173,11 @@ export default class InputInfo extends Component {
 }
 
 const styles = StyleSheet.create({
+  userInfo: {
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
   infoField: {
     width: 150,
     color: '#FFFFFF',
@@ -182,8 +189,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row'
   },
   list: {
-    marginLeft: 95,
-    marginTop: 8
+    flexDirection: 'column',
+    alignSelf: 'center'
   },
   listItem: {
     marginTop: 20,
@@ -192,7 +199,10 @@ const styles = StyleSheet.create({
     fontSize: 18
   },
   header: {
-    marginLeft: 17,
+    flexDirection: 'column',
+    alignSelf: 'center',
+    marginLeft: 5,
+    marginRight: 5,
     marginTop: 20,
     color: '#FFFFFF',
     fontFamily: 'Avenir',
@@ -210,8 +220,9 @@ const styles = StyleSheet.create({
     fontSize: 20,
   },
   saveButton: {
+    flexDirection: 'column',
+    alignSelf: 'center',
     marginTop: 20,
-    marginLeft: 70,
     width: 225,
     backgroundColor: '#000000',
     color: '#FFFFFF',
