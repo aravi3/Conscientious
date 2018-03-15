@@ -38,7 +38,7 @@ export const toPercentage = (num, total) => Math.round((num/total)*100);
 export const formatNum = (num) => {
   if (num === undefined) return;
 
-  const numString = num.toString();
+  const numString = Math.round(num).toString();
   let result = '';
   let count = 0;
 

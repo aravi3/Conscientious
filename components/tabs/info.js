@@ -88,6 +88,9 @@ export default class InputInfo extends Component {
           }
 
           if (i + 1 === numOfMonths) {
+            console.log(spendable);
+            console.log(total[category]/incomeTotal);
+            console.log(series[idx]);
             allowance.push((spendable * (total[category]/incomeTotal)) - series[idx]);
 
             if (allowance.length === categories.length) {

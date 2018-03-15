@@ -7,9 +7,9 @@ inputted data is stored locally using AsyncStorage.
 
 ## Features & Implementation
 
-### Expense Input
+### First Tab: Expense Input
 
-Description
+Users can submit each of their expenses by category. There are seven categories available to choose from: "Eating Out", "Groceries", "Fun", "Household", "Fitness", "Medical", and "Education". When an expense is submitted, it is stored under the current month for the selected category:
 
 ```javascript
 AsyncStorage.getItem(category).then(res => {
@@ -32,9 +32,9 @@ AsyncStorage.getItem(category).then(res => {
 });
 ```
 
-### Breakdown of Expenses by Month
+### Second Tab: Breakdown of Expenses by Month
 
-Description
+Users can view a pie chart of their expenses in each category, including the amount in savings, for any month in the current year. The data for the pie chart is generated as follows:
 
 ```javascript
 categories.forEach((category, idx) => {
@@ -55,9 +55,9 @@ categories.forEach((category, idx) => {
 });
 ```
 
-### View Progress for Current Year
+### Third Tab: View Progress for Current Year
 
-Description
+Users can view line graphs for each category, including the amount saved, of their progress over the current year. The first chart is a multi-series line graph that combines all the data to allow for comparisons across categories. The data for the line graphs are generated as follows:
 
 ```javascript
 categories.forEach((category, idx) => {
@@ -88,9 +88,9 @@ categories.forEach((category, idx) => {
 });
 ```
 
-### Calculate Metrics Based on Savings Goal
+### Fourth Tab: Calculate Metrics Based on Savings Goal
 
-Description
+Users can input their monthly income and desired monthly savings target in this tab. After pressing “Save”, the information is used to calculate and display how much money they are allowed to spend in each category, based on their average spending ratios, for the remainder of the current month if they want to hit their savings target. This is the function that performs the “allowance” calculation for each category:
 
 ```javascript
 categories.forEach((category, idx) => {
@@ -113,3 +113,14 @@ categories.forEach((category, idx) => {
     });
 });
 ```
+
+This is the equation that specifically calculates the allowance:
+
+```javascript
+(spendable * (total[category]/incomeTotal)) - series[idx]
+```
+where `spendable` is the current month's spendable income (`monthlyIncome - desiredSavings`), `total[category]/incomeTotal` is the average spending ratio for the given category up to the current month, and `series[idx]` is the amount already spent on that category this month.
+
+### Data Storage
+
+All the inputted information is saved locally using AsyncStorage, which is a key-value storage system that is global to the application.
