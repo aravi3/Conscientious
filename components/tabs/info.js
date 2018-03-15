@@ -65,6 +65,7 @@ export default class InputInfo extends Component {
     let { income, desiredSavings, series } = this.state;
     income = Number(income);
     desiredSavings = Number(desiredSavings);
+    const spendable = income - desiredSavings;
     const allowance = [];
     const currMonth = new Date().getMonth() + 1;
     const numOfMonths = currMonth === 1 ? 1 : currMonth - 1;
@@ -87,7 +88,7 @@ export default class InputInfo extends Component {
           }
 
           if (i + 1 === numOfMonths) {
-            allowance.push(((income - desiredSavings) * (total[category]/incomeTotal)) - series[idx]);
+            allowance.push((spendable * (total[category]/incomeTotal)) - series[idx]);
 
             if (allowance.length === categories.length) {
               this.setState({ allowance });

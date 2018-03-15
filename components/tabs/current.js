@@ -44,7 +44,7 @@ export default class Current extends Component {
   componentDidMount() {
     Orientation.unlockAllOrientations();
     Orientation.lockToPortrait();
-    this.buildSeries(months[new Date().getMonth()]);
+    this.handleMonthSelection(months[new Date().getMonth()])();
   }
 
   buildSeries = async (selectedMonth) => {
