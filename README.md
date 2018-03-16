@@ -14,18 +14,18 @@ Users can submit each of their expenses by category. There are seven categories 
 ```javascript
 AsyncStorage.getItem(category).then(res => {
     const calendar = res ? JSON.parse(res) : {
-    'Jan': [],
-    'Feb': [],
-    'Mar': [],
-    'Apr': [],
-    'May': [],
-    'Jun': [],
-    'Jul': [],
-    'Aug': [],
-    'Sep': [],
-    'Oct': [],
-    'Nov': [],
-    'Dec': []
+        'Jan': [],
+        'Feb': [],
+        'Mar': [],
+        'Apr': [],
+        'May': [],
+        'Jun': [],
+        'Jul': [],
+        'Aug': [],
+        'Sep': [],
+        'Oct': [],
+        'Nov': [],
+        'Dec': []
     };
     calendar[currentMonth].push(Number(expense));
     AsyncStorage.setItem(category, JSON.stringify(calendar));
@@ -39,18 +39,18 @@ Users can view a pie chart of their expenses in each category, including the amo
 ```javascript
 categories.forEach((category, idx) => {
     AsyncStorage.getItem(category).then(res => {
-    if (res) {
-        categoryTotal = JSON.parse(res)[selectedMonth].reduce((a, b) => a + b, 0);
-        series.push(categoryTotal);
-        total += categoryTotal;
-    } else {
-        series.push(0);
-    }
+        if (res) {
+            categoryTotal = JSON.parse(res)[selectedMonth].reduce((a, b) => a + b, 0);
+            series.push(categoryTotal);
+            total += categoryTotal;
+        } else {
+            series.push(0);
+        }
 
-    if (idx === categories.length - 1) {
-        series.push(monthlyIncome - total);
-        this.setState({ series });
-    }
+        if (idx === categories.length - 1) {
+            series.push(monthlyIncome - total);
+            this.setState({ series });
+        }
     });
 });
 ```
@@ -62,28 +62,28 @@ Users can view line graphs for each category, including the amount saved, of the
 ```javascript
 categories.forEach((category, idx) => {
     AsyncStorage.getItem(category).then(res => {
-    months.forEach(month => {
-        dataPoint = { x: month, y: undefined };
+        months.forEach(month => {
+            dataPoint = { x: month, y: undefined };
 
-        if (res) {
-        categoryTotal = JSON.parse(res)[month].reduce((a, b) => a + b, 0);
-        dataPoint.y = categoryTotal;
-        total[month] += categoryTotal;
-        } else {
-        dataPoint.y = 0;
-        }
+            if (res) {
+                categoryTotal = JSON.parse(res)[month].reduce((a, b) => a + b, 0);
+                dataPoint.y = categoryTotal;
+                total[month] += categoryTotal;
+            } else {
+                dataPoint.y = 0;
+            }
 
-        series[category].push(dataPoint);
+            series[category].push(dataPoint);
 
-        if (idx === categories.length - 1) {
-        series['savings'].push({
-            x: month,
-            y: monthlyIncome - total[month]
+            if (idx === categories.length - 1) {
+                series['savings'].push({
+                    x: month,
+                    y: monthlyIncome - total[month]
+                });
+
+                if (month === 'Dec') this.setState({ series });
+            }
         });
-
-        if (month === 'Dec') this.setState({ series });
-        }
-    });
     });
 });
 ```
@@ -95,21 +95,21 @@ Users can input their monthly income and desired monthly savings target in this 
 ```javascript
 categories.forEach((category, idx) => {
     AsyncStorage.getItem(category).then(res => {
-    for (let i = 0; i < 12; i++) {
-        if (res) {
-        total[category] += JSON.parse(res)[months[i]].reduce((a, b) => a + b, 0);
-        }
+        for (let i = 0; i < 12; i++) {
+            if (res) {
+                total[category] += JSON.parse(res)[months[i]].reduce((a, b) => a + b, 0);
+            }
 
-        if (i + 1 === numOfMonths) {
-        allowance.push((spendable * (total[category]/incomeTotal)) - series[idx]);
+            if (i + 1 === numOfMonths) {
+                allowance.push((spendable * (total[category]/incomeTotal)) - series[idx]);
 
-        if (allowance.length === categories.length) {
-            this.setState({ allowance });
-        }
+                if (allowance.length === categories.length) {
+                    this.setState({ allowance });
+                }
 
-        break;
+                break;
+            }
         }
-    }
     });
 });
 ```
