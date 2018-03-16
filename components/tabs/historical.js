@@ -19,8 +19,8 @@ export default class Historical extends Component {
         groceries: [],
         fun: [],
         household: [],
-        fitness: [],
-        medical: [],
+        transportation: [],
+        health: [],
         education: [],
         savings: []
       }
@@ -40,8 +40,8 @@ export default class Historical extends Component {
       groceries: [],
       fun: [],
       household: [],
-      fitness: [],
-      medical: [],
+      transportation: [],
+      health: [],
       education: [],
       savings: []
     };
@@ -115,11 +115,11 @@ export default class Historical extends Component {
           color = '#4CAF50';
           break;
         case 'fitness':
-          seriesName = 'Fitness';
+          seriesName = 'Transportation';
           color = '#FF9800';
           break;
         case 'medical':
-          seriesName = 'Medical';
+          seriesName = 'Health';
           color = '#8B6508';
           break;
         case 'education':
@@ -149,10 +149,10 @@ export default class Historical extends Component {
         <PureChart data={series.fun} type='line' />
         <Text style={styles.title}>Household</Text>
         <PureChart data={series.household} type='line' />
-        <Text style={styles.title}>Fitness</Text>
-        <PureChart data={series.fitness} type='line' />
-        <Text style={styles.title}>Medical</Text>
-        <PureChart data={series.medical} type='line' />
+        <Text style={styles.title}>Transportation</Text>
+        <PureChart data={series.transportation} type='line' />
+        <Text style={styles.title}>Health</Text>
+        <PureChart data={series.health} type='line' />
         <Text style={styles.title}>Education</Text>
         <PureChart data={series.education} type='line' />
         <Text style={styles.title}>Savings</Text>

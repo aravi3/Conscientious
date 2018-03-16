@@ -3,8 +3,8 @@ export const categories = [
   'groceries',
   'fun',
   'household',
-  'fitness',
-  'medical',
+  'transportation',
+  'health',
   'education'
 ];
 
@@ -13,8 +13,8 @@ export const categoryLabels = [
   'Groceries',
   'Fun',
   'Household',
-  'Fitness',
-  'Medical',
+  'Transportation',
+  'Health',
   'Education'
 ];
 

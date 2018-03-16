@@ -75,8 +75,8 @@ export default class InputInfo extends Component {
       groceries: 0,
       fun: 0,
       household: 0,
-      fitness: 0,
-      medical: 0,
+      transportation: 0,
+      health: 0,
       education: 0
     };
 
@@ -88,9 +88,6 @@ export default class InputInfo extends Component {
           }
 
           if (i + 1 === numOfMonths) {
-            console.log(spendable);
-            console.log(total[category]/incomeTotal);
-            console.log(series[idx]);
             allowance.push((spendable * (total[category]/incomeTotal)) - series[idx]);
 
             if (allowance.length === categories.length) {
