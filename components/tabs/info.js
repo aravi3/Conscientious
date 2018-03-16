@@ -55,7 +55,7 @@ export default class InputInfo extends Component {
 
   fetchExistingInfo = async () => {
     const res = await AsyncStorage.getItem('monthlyIncome');
-    const income = res ? res : '6600';
+    const income = res ? res : '5000';
     const res2 = await AsyncStorage.getItem('desiredSavings');
     const desiredSavings = res2 ? res2 : '0';
     this.setState({ income, desiredSavings });

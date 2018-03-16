@@ -34,7 +34,7 @@ export default class Historical extends Component {
 
   buildSeries = async () => {
     const incomeRes = await AsyncStorage.getItem('monthlyIncome');
-    const monthlyIncome = incomeRes ? Number(incomeRes) : 6600;
+    const monthlyIncome = incomeRes ? Number(incomeRes) : 5000;
     const series = {
       eatingOut: [],
       groceries: [],
