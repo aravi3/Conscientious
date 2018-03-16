@@ -3,7 +3,7 @@
 Conscientious is a mobile budgeting application developed using React Native. All the 
 inputted data is stored locally using AsyncStorage.
 
-![MainPic](http://res.cloudinary.com/dnj5rmvun/image/upload/v1521168355/main_screen_conscientious_sbe1n5.jpg)
+![MainPic](http://res.cloudinary.com/dnj5rmvun/image/upload/v1521168355/main_screen_conscientious_rtgvus.jpg)
 
 ## Features & Implementation
 
