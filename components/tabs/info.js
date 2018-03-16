@@ -134,7 +134,7 @@ export default class InputInfo extends Component {
     });
 
     return (
-      <View>
+      <View style={styles.container}>
         <View style={styles.userInfo}>
           <View style={styles.inputItem}>
             <Text style={styles.text}>Monthly income:</Text>
@@ -164,7 +164,7 @@ export default class InputInfo extends Component {
           The following is what you have left to spend this month
           to meet your savings goal, based on your average spending ratios:
         </Text>
-        <View style={styles.list}>
+        <View>
           {allowance}
         </View>
       </View>
@@ -173,6 +173,11 @@ export default class InputInfo extends Component {
 }
 
 const styles = StyleSheet.create({
+  container: {
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+    alignItems: 'center'
+  },
   userInfo: {
     flexDirection: 'column',
     justifyContent: 'center',
@@ -186,11 +191,9 @@ const styles = StyleSheet.create({
     fontSize: 26,
   },
   inputItem: {
-    flexDirection: 'row'
-  },
-  list: {
-    flexDirection: 'column',
-    alignSelf: 'center'
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center'
   },
   listItem: {
     marginTop: 20,
@@ -199,8 +202,6 @@ const styles = StyleSheet.create({
     fontSize: 18
   },
   header: {
-    flexDirection: 'column',
-    alignSelf: 'center',
     marginLeft: 5,
     marginRight: 5,
     marginTop: 20,
@@ -220,8 +221,6 @@ const styles = StyleSheet.create({
     fontSize: 20,
   },
   saveButton: {
-    flexDirection: 'column',
-    alignSelf: 'center',
     marginTop: 20,
     width: 225,
     backgroundColor: '#000000',

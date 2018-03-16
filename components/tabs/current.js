@@ -167,6 +167,7 @@ const styles = StyleSheet.create({
   chartItem: {
     flexDirection: 'row',
     justifyContent: 'center',
+    alignItems: 'center',
     marginBottom: 12
   },
   monthList: {
@@ -177,13 +178,13 @@ const styles = StyleSheet.create({
     marginTop: 13
   },
   legendItem: {
-    flexDirection: 'row',
+    flexDirection: 'row'
   },
   text: {
     marginHorizontal: 20,
     color: 'rgba(255, 255, 255, 0.75)',
     textAlign: 'center',
     fontFamily: 'Avenir',
-    fontSize: 18,
+    fontSize: 18
   },
 });
